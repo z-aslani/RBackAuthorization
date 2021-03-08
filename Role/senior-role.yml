@@ -1,0 +1,9 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  namespace: default
+  name: senior
+rules:
+- apiGroups: ["*"] # "" indicates the core API group
+  resources: ["pods","pods/log", "pods/portforward","deployments","services","configmaps","cronjobs"]
+  verbs: ["*"]

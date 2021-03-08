@@ -1,0 +1,18 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  namespace: default
+  name: junior
+rules:
+- apiGroups: ['*'] 
+  resources: ["pods","pods/log", "pods/portforward"]
+  verbs: ["get","list","watch","delete","describe"]
+- apiGroups: ['*'] 
+  resources: ["pods/portforward"]
+  verbs: ["create"]
+- apiGroups: ['*'] 
+  resources: ["deployments","configmaps","cronjobs"]
+  verbs: ["get","list","watch","edit","describe","patch"]
+- apiGroups: ['*'] 
+  resources: ["services"]
+  verbs: ["get","list","watch","describe"]
